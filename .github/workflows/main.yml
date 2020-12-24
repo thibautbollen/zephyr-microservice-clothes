@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         java: [ 8 ]
-    name: 990604/javaclothes
+    name: 990604/clothesservice
     steps:
       - uses: actions/checkout@master
 
@@ -50,8 +50,8 @@ jobs:
       - name: Upload Maven build artifact
         uses: actions/upload-artifact@v1
         with:
-          name: javaclothes-artifact.jar
-          path: ./target/javaclothes-0.0.1.jar
+          name: clothesservice-artifact.jar
+          path: ./target/clothes-0.0.1.jar
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
@@ -60,7 +60,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Docker Build
-        run: docker build -t 990604/javaclothes:latest .
+        run: docker build -t 990604/clothesservice:latest .
 
       - name: Upload container to Docker Hub with Push
-        run: docker push 990604/javaclothes:latest
+        run: docker push 990604/clothesservice:latest
