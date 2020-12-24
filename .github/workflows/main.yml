@@ -50,7 +50,7 @@ jobs:
       - name: Upload Maven build artifact
         uses: actions/upload-artifact@v1
         with:
-          name: order-service-artifact.jar
+          name: javaclothes-artifact.jar
           path: ./target/order-0.0.1.jar
 
       - name: Login to DockerHub
