@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 class ClothesApplicationTests {
 
     @Test
-    void contextLoads() {
+    void main() {
+        ClothesApplication.main(new String[]{});
     }
-
 }
