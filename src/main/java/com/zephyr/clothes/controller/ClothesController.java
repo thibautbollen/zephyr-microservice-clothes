@@ -34,12 +34,12 @@ public class ClothesController {
         return clothesRepository.findAll();
     }
 
-    @GetMapping("/clothes/{uuid}")
+    @GetMapping("/clothes/uuid/{uuid}")
     public Clothes findOrder(@PathVariable String uuid) {
         return clothesRepository.findFirstByUuid(uuid);
     }
 
-    @GetMapping("/clothes/{name}")
+    @GetMapping("/clothes/name/{name}")
     public Clothes findOrderName(@PathVariable String name){return clothesRepository.findFirstByName(name);}
 
     @PostMapping("/clothes")
