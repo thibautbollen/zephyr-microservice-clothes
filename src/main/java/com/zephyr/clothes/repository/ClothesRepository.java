@@ -6,6 +6,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ClothesRepository extends MongoRepository<Clothes, String> {
-    Clothes findFirstByUuid(String uuid);
+   // Clothes findFirstByUuid(String uuid);
     Clothes findFirstByName(String name);
+    Clothes findClothesByUuid(String uuid);
 }

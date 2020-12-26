@@ -36,7 +36,7 @@ public class ClothesController {
 
     @GetMapping("/clothes/uuid/{uuid}")
     public Clothes findOrder(@PathVariable String uuid) {
-        return clothesRepository.findFirstByUuid(uuid);
+        return clothesRepository.findClothesByUuid(uuid);
     }
 
     @GetMapping("/clothes/name/{name}")
@@ -49,22 +49,22 @@ public class ClothesController {
         return newClothes;
     }
 
-    @PutMapping("/clothes/{uuid}")
+    @PutMapping("/clothes/uuid/{uuid}")
     public Clothes updatePrice(@PathVariable String uuid, @RequestBody Clothes updateClothes) {
-        Clothes clothesUpdate = clothesRepository.findFirstByUuid(uuid);
-        updateClothes.setPrice(updateClothes.getPrice());
-        updateClothes.setBrand(updateClothes.getBrand());
-        updateClothes.setColor(updateClothes.getColor());
-        updateClothes.setGender(updateClothes.getGender());
-        updateClothes.setName(updateClothes.getName());
-        updateClothes.setSize(updateClothes.getSize());
+        Clothes clothesUpdate = clothesRepository.findClothesByUuid(uuid);
+        clothesUpdate.setPrice(updateClothes.getPrice());
+        clothesUpdate.setBrand(updateClothes.getBrand());
+        clothesUpdate.setColor(updateClothes.getColor());
+        clothesUpdate.setGender(updateClothes.getGender());
+        clothesUpdate.setName(updateClothes.getName());
+        clothesUpdate.setSize(updateClothes.getSize());
         clothesRepository.save(clothesUpdate);
         return clothesUpdate;
     }
 
-    @DeleteMapping("/clothes/{uuid}")
-    public ResponseEntity deleteReview(@PathVariable String uuid) {
-        Clothes clothes = clothesRepository.findFirstByUuid(uuid);
+    @DeleteMapping("/clothes/uuid/{uuid}")
+    public ResponseEntity deleteClothes(@PathVariable String uuid) {
+        Clothes clothes = clothesRepository.findClothesByUuid(uuid);
         if (clothes != null) {
             clothesRepository.delete(clothes);
             return ResponseEntity.ok().build();

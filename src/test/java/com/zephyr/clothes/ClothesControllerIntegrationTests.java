@@ -56,7 +56,7 @@ public class ClothesControllerIntegrationTests {
     public void givenClothes_whenGetClothesByName_thenReturnJsonReviews() throws Exception {
 
 
-        mockMvc.perform(get("/clothes/{name}", "Shirtie"))
+        mockMvc.perform(get("/clothes/name/{name}", "Shirtie"))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.color",is("White")))
@@ -72,7 +72,7 @@ public class ClothesControllerIntegrationTests {
     public void givenClothes_whenGetClothesByUUID_thenReturnJsonReview() throws Exception {
         String uuid = testClothes1.getUuid();
 
-        mockMvc.perform(get("/clothes/{uuid}",uuid))
+        mockMvc.perform(get("/clothes/uuid/{uuid}",uuid))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name",is("Shirtie")))
@@ -103,10 +103,9 @@ public class ClothesControllerIntegrationTests {
 
     @Test
     public void givenReview_whenPutReview_thenReturnJsonReview() throws Exception {
-
+        String uuid = testClothes2.getUuid();
         Clothes updatedClothes =  new Clothes("RegenJas", "Black", "L", "F", "RJS", 59.99,"Jacket");
-        String uuid = testClothes.getUuid();
-        mockMvc.perform(put("/clothes/{uuid}", uuid)
+        mockMvc.perform(put("/clothes/uuid/{uuid}", uuid)
                 .content(mapper.writeValueAsString(updatedClothes))
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
@@ -124,14 +123,13 @@ public class ClothesControllerIntegrationTests {
 
 
     @Test
-    public void givenNoClothes_whenDeleteClothes_thenStatusNotFound() throws Exception {
-        String uuid = testdelete.getUuid();
-        mockMvc.perform(delete("/users/{uuid}", uuid)
+    public void givenOrder_whenDeleteOrder_thenStatusOK() throws Exception {
+        String uuid = testClothes.getUuid();
+        mockMvc.perform(delete("/clothes/uuid/{uuid}", uuid)
                 .contentType(MediaType.APPLICATION_JSON))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isOk());
+
     }
-
-
 
 
 }
