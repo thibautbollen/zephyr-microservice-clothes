@@ -130,7 +130,7 @@ public class UserControllerUnitTests {
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.name",is("Shirtie")))
                 .andExpect(jsonPath("$.color",is("White")))
-                .andExpect(jsonPath("$.size",is("XXS")))
+                .andExpect(jsonPath("$.size",is("XL")))
                 .andExpect(jsonPath("$.gender",is("M")))
                 .andExpect(jsonPath("$.brand",is("Bateau")))
                 .andExpect(jsonPath("$.price",is(29.99)))
