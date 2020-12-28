@@ -4,17 +4,17 @@
 
 Welcome to the readme of the Clothes micro service, this ms is part of a project for the advanced programming topics class of Thomas More, here are the links to the other micro services
 
-- ```markdown
+- 
   zephyr-microservice-order: ![Test, Build and Upload artifact](https://github.com/wardbeyens/zephyr-microservice-order/workflows/Test,%20Build%20and%20Upload%20artifact/badge.svg?branch=main)
-  ```
+  
 
-- ```markdown
+- 
   zephyr-microservice-user:![Test, Build and Upload artifact](https://github.com/cindy5656/Zephyr-userservice/workflows/Test,%20Build%20and%20Upload%20artifact/badge.svg?branch=master)
-  ```
+  
 
-- ```markdown
+- 
   zephyr-microservice-edge: ![zephyr-microservice-edge](https://github.com/wardbeyens/zephyr-microservice-edge/workflows/Test,%20Build%20and%20Upload%20artifact/badge.svg?branch=main)
-  ```
+  
 
 
 
@@ -24,9 +24,9 @@ Here you can find the results of all the get, put, push and delete requests for 
 
 1. Get all clothes /clothes
 
-   ```markdown
+   
    ![Get all](https://i.imgur.com/WfOahn2.png)
-   ```
+   
 
 2. Get by name /clothes/{name}
 
